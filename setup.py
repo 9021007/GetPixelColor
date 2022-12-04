@@ -1,4 +1,5 @@
 from setuptools import setup
+import sys
 readme = open('README.md').read()
 
 setup(
@@ -13,12 +14,11 @@ setup(
     license='MIT',
     packages=['getpixelcolor'],
     install_requires=[
-                    'pasteboard',
                     'Pillow',
                     'pyautogui',
-                    'pyobjc-core',
-                    'pyobjc'
-                    ],
+                    ] + (
+                        ['pyobjc', 'pyobjc-core', 'pasteboard'] if sys.platform == "darwin" else []
+                    ),
     platforms=['Windows', 'Linux', 'Mac OS X'],
     
 
