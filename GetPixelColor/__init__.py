@@ -28,7 +28,11 @@ def pixel(x, y):
         im = Image.open(BytesIO(im))
         return (im.getpixel((0,0)))
     elif (platform == "win32" or platform == "linux" or platform == "linux2"):
-        im = pyautogui.screenshot('/tmp/screenshot.png', region=(x, y, 1, 1))
+        # screenshot the area, saving to a temporary folder based on the OS
+        if (platform == "win32"):
+            im = pyautogui.screenshot('C:\\Windows\\Temp\\screenshot.png', region=(x, y, 1, 1))
+        elif (platform == "linux" or platform == "linux2"):
+            im = pyautogui.screenshot('/tmp/screenshot.png', region=(x, y, 1, 1))
         return (im.getpixel((0,0)))
     else:
         return ("Error: Unsupported operating system.")
@@ -66,7 +70,11 @@ def area(x, y, width, height):
         im = Image.open(BytesIO(im))
         return (np.array(im).tolist())
     elif (platform == "win32" or platform == "linux" or platform == "linux2"):
-        im = pyautogui.screenshot('/tmp/screenshot.png', region=(x, y, width, height))
+        # screenshot the area, saving to a temporary folder based on the OS
+        if (platform == "win32"):
+            im = pyautogui.screenshot('C:\\Windows\\Temp\\screenshot.png', region=(x, y, width, height))
+        elif (platform == "linux" or platform == "linux2"):
+            im = pyautogui.screenshot('/tmp/screenshot.png', region=(x, y, width, height))
         return (np.array(im).tolist())
     else:
         return ("Error: Unsupported operating system.")
