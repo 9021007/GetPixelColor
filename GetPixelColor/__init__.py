@@ -4,7 +4,8 @@
 from io import BytesIO
 import os
 import platform
-from pasteboard import TIFF, Pasteboard
+if (platform == "darwin"):
+    from pasteboard import TIFF, Pasteboard
 from PIL import Image
 from sys import platform
 import pyautogui
