@@ -2,6 +2,9 @@
 
 ## A cross-platform python library for getting the color of a given pixel on screen.
 
+![img](https://github.com/Bobrobot1/GetPixelColor/actions/workflows/tests.yml/badge.svg)
+
+
  - Compatible with MacOS, Windows, and Linux.
  - Transparency data only be available on some platforms.
 
