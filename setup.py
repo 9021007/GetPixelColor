@@ -15,10 +15,12 @@ setup(
     packages=['getpixelcolor'],
     install_requires=[
                     'Pillow',
+                    'numpy',
                     'pyautogui',
-                    ] + (
-                        ['pyobjc', 'pyobjc-core', 'pasteboard'] if sys.platform == "darwin" else []
-                    ),
+                    'pyobjc; platform_system == "darwin"',
+                    'pyobjc-core; platform_system == "darwin"',
+                    'pasteboard; platform_system == "darwin"'
+                    ],
     platforms=['Windows', 'Linux', 'Mac OS X'],
     
 
