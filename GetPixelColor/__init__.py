@@ -14,7 +14,7 @@ import pyautogui
 # returns a tuple of the RGBA values of the pixel
 def pixel(x, y):
     if (platform == "darwin"):
-        os.system('screencapture -R ' + str(x) + ',' + str(y) + ',1,1 -c')
+        os.system('/usr/sbin/screencapture -R ' + str(x) + ',' + str(y) + ',1,1 -c')
         im = Pasteboard().get_contents(TIFF)
         im = Image.open(BytesIO(im))
         return (im.getpixel((0,0)))
