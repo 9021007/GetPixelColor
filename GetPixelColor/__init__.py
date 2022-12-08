@@ -35,7 +35,9 @@ def pixel(x, y):
         if (not os.access(path, os.X_OK)):
             # make the file executable
             os.chmod(path, 0o755)
-        return ((os.popen(path + " " + str(x) + " " + str(y)).read()))
+        # return (tuple(os.popen(path + " " + str(x) + " " + str(y)).read().replace("\n", "").strip('( )').split(',')))
+        #return as int tuple
+        return tuple(int(i) for i in os.popen(path + " " + str(x) + " " + str(y)).read().replace("\n", "").strip('( )').split(','))
     elif (platform == "win32" or platform == "linux" or platform == "linux2"):
         # screenshot the area, saving to a temporary folder based on the OS
         if (platform == "win32"):
