@@ -4,13 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "GetPixelColor"
-version = "0.2.2"
+version = "0.2.4"
 authors = [
   { name="Bobrobot1", email="bobrobot@zoho.com" },
 ]
 description = "A cross-platform python library for getting the color of a given pixel on screen."
 readme = "README.md"
-requires-python = ">=3.0"
+requires-python = ">=3.8"
 classifiers = [
     'Development Status :: 5 - Production/Stable',
     'Intended Audience :: Developers',

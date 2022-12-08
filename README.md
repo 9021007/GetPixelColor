@@ -6,7 +6,7 @@
 
 
  - Compatible with MacOS, Windows, and Linux.
- - Transparency data only be available on some platforms.
+ - Transparency data only available on some platforms.
 
 __Examples:__
 
@@ -21,3 +21,5 @@ Get average color of an area: `getpixelcolor.average(x, y, width, height)`
 Get all color values of an area: `getpixelcolor.area(x, y, width, height)`
 
 > [[[R, G, B, (A)]]]
+
+https://pypi.org/project/GetPixelColor/

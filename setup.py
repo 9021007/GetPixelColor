@@ -19,7 +19,8 @@ setup(
                     'pyautogui',
                     'pyobjc; platform_system == "darwin"',
                     'pyobjc-core; platform_system == "darwin"',
-                    'pasteboard; platform_system == "darwin"'
+                    'pasteboard; platform_system == "darwin"',
+                    'win32api; platform_system == "Windows"',
                     ],
     platforms=['Windows', 'Linux', 'Mac OS X'],
     

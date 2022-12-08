@@ -22,15 +22,12 @@ def pixel(x, y):
     checkForIssues(x)
     checkForIssues(y)
     if (platform == "darwin"):
-        from pasteboard import TIFF, Pasteboard
-        os.system('/usr/sbin/screencapture -R ' + str(x) + ',' + str(y) + ',1,1 -c')
-        im = Pasteboard().get_contents(TIFF)
-        im = Image.open(BytesIO(im))
-        return (im.getpixel((0,0)))
+        return (tuple(os.popen("./get-pixel-color " + str(x) + " " + str(y)).read()))
     elif (platform == "win32" or platform == "linux" or platform == "linux2"):
         # screenshot the area, saving to a temporary folder based on the OS
         if (platform == "win32"):
-            im = pyautogui.screenshot('C:\\Windows\\Temp\\screenshot.png', region=(x, y, 1, 1))
+            import win32gui
+            im = win32gui.GetPixel(win32gui.GetDC(win32gui.GetDesktopWindow()), x, y)
         elif (platform == "linux" or platform == "linux2"):
             im = pyautogui.screenshot('/tmp/screenshot.png', region=(x, y, 1, 1))
         return (im.getpixel((0,0)))

@@ -7,3 +7,4 @@ def test_pixel():
         assert type(i) == type(1)
         assert i >= 0
         assert i <= 255
+
