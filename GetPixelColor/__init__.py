@@ -23,12 +23,19 @@ def pixel(x, y):
     checkForIssues(x)
     checkForIssues(y)
     if (platform == "darwin"):
-        from pasteboard import TIFF, Pasteboard
-        os.system('/usr/sbin/screencapture -R ' + str(x) + ',' + str(y) + ',1,1 -c')
-        im = Pasteboard().get_contents(TIFF)
-        im = Image.open(BytesIO(im))
-        return (tuple(im.getpixel((0,0))))
-        # return (tuple(os.popen("static/get-pixel-color " + str(x) + " " + str(y)).read()))
+        # from pasteboard import TIFF, Pasteboard
+        # os.system('/usr/sbin/screencapture -R ' + str(x) + ',' + str(y) + ',1,1 -c')
+        # im = Pasteboard().get_contents(TIFF)
+        # im = Image.open(BytesIO(im))
+        # return (tuple(im.getpixel((0,0))))
+        
+        #get path of parent folder
+        path = os.path.dirname(os.path.abspath(__file__)) + "/static/get-pixel-color"
+        # check if the file is executable
+        if (not os.access(path, os.X_OK)):
+            # make the file executable
+            os.chmod(path, 0o755)
+        return ((os.popen(path + " " + str(x) + " " + str(y)).read()))
     elif (platform == "win32" or platform == "linux" or platform == "linux2"):
         # screenshot the area, saving to a temporary folder based on the OS
         if (platform == "win32"):
