@@ -4,3 +4,4 @@ gcc -o get-pixel-color86 get-pixel-color.c -framework ApplicationServices -targe
 lipo -create -output get-pixel-color get-pixel-color86 get-pixel-colorarm   #create universal binary
 rm get-pixel-color86 get-pixel-colorarm  #remove the old binaries
 chmod +x get-pixel-color #make it executable
+mv get-pixel-color static/ #move it to the static folder

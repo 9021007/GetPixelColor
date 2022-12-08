@@ -9,6 +9,7 @@ from sys import platform
 import pyautogui
 import numpy as np
 
+
 def checkForIssues(num):
     if (type(num) != int):
         raise TypeError("x, y, width, and height must be integers")
@@ -22,7 +23,12 @@ def pixel(x, y):
     checkForIssues(x)
     checkForIssues(y)
     if (platform == "darwin"):
-        return (tuple(os.popen("./get-pixel-color " + str(x) + " " + str(y)).read()))
+        from pasteboard import TIFF, Pasteboard
+        os.system('/usr/sbin/screencapture -R ' + str(x) + ',' + str(y) + ',1,1 -c')
+        im = Pasteboard().get_contents(TIFF)
+        im = Image.open(BytesIO(im))
+        return (tuple(im.getpixel((0,0))))
+        # return (tuple(os.popen("static/get-pixel-color " + str(x) + " " + str(y)).read()))
     elif (platform == "win32" or platform == "linux" or platform == "linux2"):
         # screenshot the area, saving to a temporary folder based on the OS
         if (platform == "win32"):
