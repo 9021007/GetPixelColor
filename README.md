@@ -7,8 +7,10 @@
 
  - Compatible with MacOS, Windows, and Linux.
  - Transparency data only available on some platforms.
-
+   
 __Examples:__
+
+Make sure you first `import getpixelcolor`
 
 Get color of a specific pixel: `getpixelcolor.pixel(x, y)`
 
